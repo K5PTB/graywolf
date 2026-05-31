@@ -1426,6 +1426,7 @@ const SIGNAL_THRESHOLD_DBFS: f32 = -40.0;
 #[cfg(target_os = "linux")]
 fn is_useful_alsa_device(pcm_id: &str) -> bool {
     pcm_id == "default"
+        || pcm_id == "pipewire"
         || pcm_id.starts_with("hw:")
         || pcm_id.starts_with("plughw:")
 }
