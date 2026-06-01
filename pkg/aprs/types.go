@@ -199,7 +199,7 @@ type DecodedAPRSPacket struct {
 	Comment       string             // residual free-form text after structured fields
 	Timestamp     time.Time
 	Channel       int
-	Quality       int // modem-reported quality (0..100) if available
+	Quality       int `json:"quality"` // modem-reported quality (0..100) if available
 	// Direction identifies the ingress path: DirectionRF for packets heard
 	// over RF via the modem bridge / KISS / AGW, DirectionIS for packets
 	// received from APRS-IS by the iGate. Unset (DirectionUnknown) when

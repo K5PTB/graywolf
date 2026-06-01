@@ -107,6 +107,7 @@ func (a *App) dispatchRxFrame(ctx context.Context, item rxFanoutItem, aprsSubmit
 		a.digi.Handle(ctx, rf.Channel, f, src)
 		if pkt, err := aprs.Parse(f); err == nil && pkt != nil {
 			pkt.Channel = int(rf.Channel)
+			pkt.Quality = int(rf.Quality)
 			pkt.Direction = aprs.DirectionRF
 			e.Type = string(pkt.Type)
 			e.Decoded = pkt
